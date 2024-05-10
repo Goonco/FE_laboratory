@@ -4,6 +4,8 @@ const getString = (state) => {
       return "Default";
     case "Success":
       return "Success";
+    case "Loading":
+      return "Loading";
     default:
       return "Error";
   }

@@ -8,6 +8,7 @@ export default function App() {
   const handleButtonClick = async (e) => {
     // console.log(e.target.id);
 
+    setDisplayState("Loading");
     try {
       const response = await axios.get(import.meta.env.VITE_BASE_URL);
       setDisplayState(response.data.displayState);

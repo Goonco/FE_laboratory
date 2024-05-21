@@ -1,5 +1,9 @@
-import { useState } from "react";
+import "./App.css";
+import { Suspense, useState } from "react";
 import Post from "./NoSuspense/Post";
+import SuspensePost from "./Suspense/SuspensePost";
+import Loading from "./Loading";
+import fetchData from "./Suspense/fetchData";
 
 const App = () => {
   const [postId, setPostId] = useState("");
@@ -16,7 +20,16 @@ const App = () => {
         <input id="postId" type="number" placeholder="불러올 post id" />
         <button>load</button>
       </form>
-      <Post postId={postId} />
+      <div id="compare-box">
+        <div className="post-box">
+          <Post postId={postId} />
+        </div>
+        <div className="post-box">
+          <Suspense fallback={<Loading />}>
+            <SuspensePost resource={fetchData(postId)} />
+          </Suspense>
+        </div>
+      </div>
     </>
   );
 };

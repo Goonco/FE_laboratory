@@ -1,0 +1,13 @@
+#compare-box {
+  margin: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20;
+}
+
+.post-box {
+  width: 40vw;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: #ededed;
+}
